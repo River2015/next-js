@@ -1,0 +1,17 @@
+@import 'main';
+
+.label {
+  color: $color_4;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.select {
+  background: $color_3;
+  border: transparent;
+  color: $color_5;
+  text-transform: uppercase;
+  margin-left: 30px;
+}

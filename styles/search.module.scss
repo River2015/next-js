@@ -1,0 +1,11 @@
+@import 'main';
+
+.wrapper {
+  display: flex;
+}
+
+.input {
+  height: 36px;
+  border-radius: $border-radius;
+  flex: 1;
+}

@@ -1,0 +1,29 @@
+@import 'main';
+
+.wrapper {
+  width: 30%;
+  margin-bottom: 60px;
+  color: $color_4;
+  position: relative;
+  &:hover .dropdown{
+    display: block;
+  }
+}
+
+.imgWrapper {
+  max-height: 450px;
+  overflow-y: hidden;
+  img {
+    width: 100%;
+  }
+}
+
+.info {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown {
+  display: none;
+}

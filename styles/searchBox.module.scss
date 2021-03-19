@@ -1,0 +1,23 @@
+@import 'main';
+
+.title {
+  color: $color_5;
+  text-transform: uppercase;
+  margin: 60px 0 40px 80px;
+  font-weight: 400;
+}
+
+.button {
+  float: right;
+}
+
+.search {
+  margin: 0 60px 100px 60px;
+}
+
+#modal-root {
+  position: relative;
+  z-index: 999;
+}
+
+

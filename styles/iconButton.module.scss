@@ -1,0 +1,106 @@
+@import "main";
+
+.button {
+  display: inline-block;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+}
+
+.button:before, .button:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  width: 2px;
+  background-color: $color_5;
+  top: 0;
+  height: 100%;
+}
+
+.icon {
+  &-cross {
+    &.button:after {
+      transform: rotate(-45deg);
+    }
+    &.button:before{
+      transform: rotate(45deg);
+    }
+  }
+
+  &-search {
+    color: $color_1;
+    &.button:after {
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid $color_1;
+      border-radius: 50%;
+      top: 0;
+      height: 100%;
+    }
+    &.button:before{
+      transform: rotate(45deg);
+      top: 100%;
+      background-color: $color_1;
+    }
+  }
+}
+
+.size {
+
+  &-lg {
+    width: 30px;
+    height: 30px;
+    &.button:before{
+      height: 33px;
+    }
+    &.button:after{
+      height: 33px;
+    }
+  }
+
+  &-sm {
+    width: 25px;
+    height: 25px;
+    &.button:before{
+      height: 30px;
+    }
+    &.button:after{
+      height: 30px;
+    }
+  }
+
+}
+
+.icon-search.size {
+
+  &-lg {
+    width: 30px;
+    height: 30px;
+    &.button:before{
+      height: 30px;
+    }
+    &.button:after{
+      height: 30px;
+    }
+  }
+
+  &-sm {
+    width: 15px;
+    height: 15px;
+    &.button:before{
+      height: 7px;
+    }
+    &.button:after{
+      height: 15px;
+    }
+  }
+
+}
+
+

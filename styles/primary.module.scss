@@ -1,0 +1,12 @@
+@import 'main';
+
+.wrapper {
+  background: $color_3;
+}
+
+.controls {
+  margin: 0 80px;
+  border-bottom: 1px solid $color_4;
+  display: flex;
+  justify-content: space-between;
+}

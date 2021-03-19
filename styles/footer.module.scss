@@ -1,0 +1,14 @@
+@import 'main';
+
+.wrapper {
+  color: $color_1;
+  background: $color_2;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
