@@ -4,24 +4,26 @@ import Layout from '../../components/Layout';
 import {useRouter} from 'next/router';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getMoviesList} from "../../store/actions/actions";
+import {getMoviesList, getMovieById} from "../../store/actions/actions";
+import { wrapper } from "../../store/index";
 
 export default function HomeDetails(props) {
     const {query} = useRouter();
-    console.log(props);
+    
   const [headerContent, setHeaderContent] = useState(null);
 
     const handleClick = useCallback((headerContent) => {
         setHeaderContent(headerContent);
     }, [headerContent]);
-    const dispatch = useDispatch();
-    useEffect(() => {
+//     const dispatch = useDispatch();
+//     useEffect(() => {
       
-        dispatch(getMoviesList(1, 40));
-}, [dispatch]);
-    const movies = useSelector(state => state.moviesReducer.movies);
+//         dispatch(getMoviesList(1, 40));
+// }, [dispatch]);
+    // const movies = useSelector(state => state.moviesReducer.movies);
     
-    console.log(movies);
+    const {movies, movie} = props;
+
     
   return (
     <Layout movies = {movies}>
@@ -29,24 +31,18 @@ export default function HomeDetails(props) {
     </Layout>   
   )
 }
-// export async function getServerSideProps(ctx) {
-//     const {query} = ctx;
-//     console.log(ctx);
-//   const res = await fetch(`http://localhost:4000/movies`)
-//   const data = await res.json()
-//   return { props: { data } }
-// }
-
-// export async function getStaticProps(context) {
-//     const res = await fetch('http://localhost:4000/movies')
-//     const json = await res.json()
-//     return { props: { data } }
-//   }
-
-// export async function getServerSideProps(ctx) {
-//     const {query} = ctx;
-//     console.log(ctx);
-//   const res = await fetch(`http://localhost:4000/movies/${query}`)
-//   const dataId = await res.json()
-//   return { props: { dataId } }
-// }
+export const getServerSideProps = wrapper.getServerSideProps(
+  async ({ store }, context) => {
+  await store.dispatch(getMoviesList(4, 80));
+  await store.dispatch(getMovieById(88));
+  const movies = store.getState().moviesReducer.movies;
+  const movie = store.getState().moviesReducer.movies.filter(movie => movie.id == query);
+  
+  return {
+  props: {
+  movies,
+  movie
+  },
+  };
+  }
+ );

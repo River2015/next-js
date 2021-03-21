@@ -4,10 +4,10 @@ import Logo from './Logo';
 import IconButton from './BaseComponents/IconButton';
 //import {useDispatch, useSelector} from "react-redux";
 // import { selectedMovieRequestSelector} from "../../selectors/selectors";
-// import { getMovieById} from "../../actions/actions";
 // import {useParams, Link} from "react-router-dom";
 
-export default function Details ({data}) {
+export default function Details ({data, movies}) {
+    console.log(movies);
     const movieInfo = data[0];
    // console.log(data.data[0])
     // const movieId = useParams().id;

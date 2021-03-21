@@ -82,6 +82,8 @@ export const setMovieSelected = (movie) => ({
     }
 });
 
+export const getSelectedMovieInfo = state => state.moviesReducer.selected;
+
 export const getMoviesList = (offset, limit, filter, sortBy, sortOrder, search, searchBy='title') => {
     return dispatch => {
         dispatch(getMoviesBegin());
