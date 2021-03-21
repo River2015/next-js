@@ -5,7 +5,7 @@ import Logo from './Logo';
 import Primary from './Primary';
 import {useState, useCallback} from 'react';
 
-export default function Layout({children, data}) {
+export default function Layout({children, movies}) {
   const [headerContent, setHeaderContent] = useState(null);
 
     const handleClick = useCallback((headerContent) => {
@@ -16,7 +16,7 @@ export default function Layout({children, data}) {
       <div>{children}</div>
               {/* <Header headerContent = {headerContent} onClick={handleClick}/> */}
                {/* <ErrorBoundary> */}
-                  <Primary onClick={handleClick} movies={data}/>
+                  <Primary onClick={handleClick} movies={movies}/>
               {/* </ErrorBoundary> */}
               <Footer>
                   <Logo/>

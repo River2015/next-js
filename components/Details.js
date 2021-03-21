@@ -8,7 +8,7 @@ import IconButton from './BaseComponents/IconButton';
 // import {useParams, Link} from "react-router-dom";
 
 export default function Details ({data}) {
-    const movieInfo = data.data[0];
+    const movieInfo = data[0];
    // console.log(data.data[0])
     // const movieId = useParams().id;
     // const dispatch = useDispatch();
