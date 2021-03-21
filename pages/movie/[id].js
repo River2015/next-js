@@ -22,7 +22,7 @@ export default function HomeDetails(props) {
 // }, [dispatch]);
     // const movies = useSelector(state => state.moviesReducer.movies);
     
-    const {movies, movie} = props;
+    const {movies} = props;
 
     
   return (
@@ -32,16 +32,15 @@ export default function HomeDetails(props) {
   )
 }
 export const getServerSideProps = wrapper.getServerSideProps(
-  async ({ store }, context) => {
+  async ({ store }) => {
   await store.dispatch(getMoviesList(4, 80));
   await store.dispatch(getMovieById(88));
   const movies = store.getState().moviesReducer.movies;
-  const movie = store.getState().moviesReducer.movies.filter(movie => movie.id == query);
+  // const movie = store.getState().moviesReducer.movies.filter(movie => movie.id == query);
   
   return {
   props: {
-  movies,
-  movie
+  movies
   },
   };
   }
