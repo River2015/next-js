@@ -3,6 +3,7 @@ import styles from '../styles/searchBox.module.scss';
 import Logo from './Logo';
 import Button from './BaseComponents/Button';
 import Search from './BaseComponents/Search';
+import Link from 'next/link';
 // import AddModal from '../Modals/AddModal';
 // import {useDispatch} from "react-redux";
 // import {setAddModalVisibility} from "../../actions/modal-actions";
@@ -12,14 +13,17 @@ export default function SearchBox () {
 
     const handleClickAdd = useCallback(() => {
         // dispatch(setAddModalVisibility(true))
-        console.log('close')
     },[
         // dispatch
     ]);
 
    return (
         <div data-test-id='container'>
-            <Logo/>
+            <Link href="/">
+                <Button color='transparent'>
+                    <Logo/>
+                </Button>
+            </Link>
             <Button
                 children='+ add movie'
                 color='transparent'

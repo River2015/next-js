@@ -1,34 +1,17 @@
-// import { useEffect} from 'react';
 import styles from '../styles/details.module.scss';
 import Logo from './Logo';
 import IconButton from './BaseComponents/IconButton';
-//import {useDispatch, useSelector} from "react-redux";
-// import { selectedMovieRequestSelector} from "../../selectors/selectors";
-// import { getMovieById} from "../../actions/actions";
-// import {useParams, Link} from "react-router-dom";
+import Link from 'next/link';
 
-export default function Details ({data}) {
-    const movieInfo = data.data[0];
-   // console.log(data.data[0])
-    // const movieId = useParams().id;
-    // const dispatch = useDispatch();
-
-    // useEffect(() => {
-// TODO : get in pages
-       // dispatch(getMovieById(movieId));
-   // },[
-       // dispatch, movieId
-    //] );
-
-    // const movieInfo = useSelector(selectedMovieRequestSelector);
+export default function Details ({movieInfo}) {
 
     return (
         <div >
             <div className={styles.header}>
                 <Logo/>
-            {/* <Link to="/"> */}
-                <IconButton  size='sm'  icon='search'/>
-                {/* </Link> */}
+                <Link href="/">
+                    <IconButton className={styles.iconButton} size='xlg'  icon='search'/>
+                </Link>
             </div>
             <div className={styles.content}>
                 <div>

@@ -2,9 +2,10 @@ import SearchBox from "../components/SearchBox";
 import { useState, useCallback, Children } from "react";
 import Layout from "../components/Layout";
 import React from "react";
-import { getMoviesList } from "../store/actions/actions";
+import { getMoviesList, getMoviesSearchList } from "../store/actions/actions";
 import { wrapper } from "../store/index";
 import {useRouter} from 'next/router';
+import Link from 'next/link';
  
 export default function Home({ movies }) {
   const {query} = useRouter();
@@ -19,15 +20,15 @@ export default function Home({ movies }) {
   );
  
  return (
-  <Layout movies={movies}>
-    <SearchBox headerContent={headerContent} onClick={handleClick} />
-  </Layout>
+        <Layout movies={movies}>
+            <SearchBox headerContent={headerContent} onClick={handleClick} />
+        </Layout>
  );
 }
  
 export const getServerSideProps = wrapper.getServerSideProps(
- async ({ store }) => {
- await store.dispatch(getMoviesList(1, 40));
+ async ({ store, query }) => {
+ await store.dispatch(getMoviesSearchList(query.Search));
  const movies = store.getState().moviesReducer.movies;
  
  return {
