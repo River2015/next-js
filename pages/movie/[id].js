@@ -24,7 +24,6 @@ export default function HomeDetails(props) {
 }
 export const getServerSideProps = wrapper.getServerSideProps(
   async ({ store, params }) => {
-    
   await store.dispatch(getMoviesList(3, 50));
   await store.dispatch(getMovieById(params.id));
   const movies = store.getState().moviesReducer.movies;
