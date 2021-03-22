@@ -1,0 +1,17 @@
+@import 'main';
+
+.wrapper {
+  background: $color_4;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  margin-top: -80px;
+  display: flex;
+  justify-content: center;
+  padding-top: 170px;
+}
+
+.main {
+  color: $color_5;
+  font-size: 32px;
+}

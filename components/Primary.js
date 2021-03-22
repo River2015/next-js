@@ -13,7 +13,7 @@ export default function Primary({onClick, movies }) {
                 <MovieSort/>
             </div>
             <MovieCounter/>
-            <MovieList onClick={onClick}/>
+            <MovieList onClick={onClick} movies={movies}/>
         </div>
         </>
     )

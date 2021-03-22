@@ -6,19 +6,19 @@ import { getMoviesList } from "../store/actions/actions";
 import { wrapper } from "../store/index";
  
 export default function Home({ movies }) {
- const [headerContent, setHeaderContent] = useState(null);
+  const [headerContent, setHeaderContent] = useState(null);
  
- const handleClick = useCallback(
- (headerContent) => {
- setHeaderContent(headerContent);
- },
- [headerContent]
- );
+  const handleClick = useCallback(
+  (headerContent) => {
+    setHeaderContent(headerContent);
+  },
+    [headerContent]
+  );
  
  return (
- <Layout movies={movies}>
- <SearchBox headerContent={headerContent} onClick={handleClick} />
- </Layout>
+  <Layout movies={movies}>
+    <SearchBox headerContent={headerContent} onClick={handleClick} />
+  </Layout>
  );
 }
  
@@ -28,9 +28,9 @@ export const getServerSideProps = wrapper.getServerSideProps(
  const movies = store.getState().moviesReducer.movies;
  
  return {
- props: {
- movies,
- },
- };
+  props: {
+    movies,
+    },
+  };
  }
 );

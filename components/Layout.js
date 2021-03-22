@@ -13,11 +13,8 @@ export default function Layout({children, movies}) {
     }, [headerContent]);
   return (
   <div className={styles.wrapper}>
-      <div>{children}</div>
-              {/* <Header headerContent = {headerContent} onClick={handleClick}/> */}
-               {/* <ErrorBoundary> */}
-                  <Primary onClick={handleClick} movies={movies}/>
-              {/* </ErrorBoundary> */}
+      <div>{children}</div>            
+              <Primary onClick={handleClick} movies={movies}/>             
               <Footer>
                   <Logo/>
               </Footer>
