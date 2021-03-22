@@ -5,6 +5,7 @@ import React from "react";
 import { getMoviesList, getMoviesSearchList } from "../store/actions/actions";
 import { wrapper } from "../store/index";
 import {useRouter} from 'next/router';
+import Link from 'next/link';
  
 export default function Home({ movies }) {
   const {query} = useRouter();
@@ -19,15 +20,14 @@ export default function Home({ movies }) {
   );
  
  return (
-  <Layout movies={movies}>
-    <SearchBox headerContent={headerContent} onClick={handleClick} />
-  </Layout>
+        <Layout movies={movies}>
+            <SearchBox headerContent={headerContent} onClick={handleClick} />
+        </Layout>
  );
 }
  
 export const getServerSideProps = wrapper.getServerSideProps(
- async ({ store, params, query }) => {
-     console.log( query);
+ async ({ store, query }) => {
  await store.dispatch(getMoviesSearchList(query.Search));
  const movies = store.getState().moviesReducer.movies;
  

@@ -15,7 +15,7 @@ export default function Search(props) {
     const [value, setValue] = useState('');
 
     const handleChange = (event) =>  {
-        setValue(event.target.value);
+        setValue(event.target.value);    
     };
 
     const onHandleClick = (event) => {
@@ -24,10 +24,9 @@ export default function Search(props) {
     return (
             <form className={className} onSubmit={onHandleClick}>
                 <input className={styles.input}  value={value} onChange={handleChange}/>
-                <Link href={`/search/?Search=${value}`}>
+                <Link as={'/search/search'} href={`/search/?Search=${value}`}>
                     <Button children='search' className={styles.button} type='submite'/>
-                </Link>
-                
+                </Link>  
             </form>
     )
 };
